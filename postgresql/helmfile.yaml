@@ -1,0 +1,7 @@
+releases:
+  - name: postgresql
+    namespace: default
+    chart: oci://registry-1.docker.io/bitnamicharts/postgresql
+    version: 16.6.6
+    values:
+      - values.yaml

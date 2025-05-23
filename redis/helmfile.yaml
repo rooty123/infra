@@ -1,0 +1,7 @@
+releases:
+  - name: redis
+    namespace: default
+    chart: oci://registry-1.docker.io/bitnamicharts/redis
+    version: 17.3.18
+    values:
+      - values.yaml
