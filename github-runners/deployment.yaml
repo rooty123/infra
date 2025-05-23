@@ -49,3 +49,29 @@ spec:
       labels:
         - linux
         - abc
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: scheduler-runnerdeploy
+spec:
+  replicas: 1
+  template:
+    spec:
+      securityContext:
+        runAsUser: 1001
+        runAsGroup: 1001
+        fsGroup: 1001
+      containerMode: kubernetes
+      workVolumeClaimTemplate:
+        storageClassName: "csi-cinder-classic"
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+      serviceAccountName: github-runner-sa  
+      repository: rooty123/scheduler
+      labels:
+        - linux
+        - abc
